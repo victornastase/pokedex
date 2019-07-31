@@ -26,6 +26,11 @@
     margin-bottom: 8px;
 }
 
+.disabled {
+    color: #71c1a1;
+    background: white;
+}
+
 .fa {
     color: #71c1a1;
     font-size: 190%;
