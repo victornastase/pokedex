@@ -1,0 +1,28 @@
+.caption {
+    background: #eeeeee;
+    margin-bottom: 5px;
+}
+
+.thumbnail {
+    border-radius: 0;
+    min-width: 300px;
+    width: 300px;
+    min-height: 300px;
+    height: 300px;
+}
+
+.img-thumbnail {
+    border-radius: 0;
+}
+
+.fa-heart, .fa-heart-o {
+    color:red;
+    font-size: 170%;
+    margin-top: 25%;
+}
+
+.text-center{
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}

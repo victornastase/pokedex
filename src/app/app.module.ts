@@ -5,10 +5,19 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 
+import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
+import { PokemonItemComponent } from './pokemon-item/pokemon-item.component';
+
+import { FavoriteHeart } from './shared/directives/favorite-heart.directive';
+
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    PokemonListComponent,
+    PokemonItemComponent,
+    
+    FavoriteHeart
   ],
   imports: [
     BrowserModule,

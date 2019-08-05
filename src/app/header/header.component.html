@@ -3,8 +3,8 @@
         <div class="container-fuild">
             <div class="row mb-1">
                     <div class="btn-group btn-group-justified w-100">
-                            <a href="#" class="btn btn-primary mx-1">All</a>
-                            <a href="#" class="btn btn-primary mx-1 disabled">Favorites</a>
+                            <button class="btn btn-primary mx-1" [ngClass]="{'disabled':!isActive('All')}" (click)="onSelected('All')">All</button>
+                            <button class="btn btn-primary mx-1" [ngClass]="{'disabled':isActive('All')}" (click)="onSelected('Fav')">Favorites</button>
                     </div>
             </div>
             <div class="row">

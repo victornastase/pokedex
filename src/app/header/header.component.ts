@@ -7,12 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  allBtnSelected:boolean;
-  favoritesBtnSelected:boolean;
+  selectedBtn:string;
 
   constructor() { }
 
+  onSelected(btnName:string) {
+    this.selectedBtn =btnName;
+  }
+
+  isActive(btnName:string) {
+    return this.selectedBtn == btnName;
+  }
+
   ngOnInit() {
+    this.selectedBtn = 'All';
   }
 
 }
