@@ -1,28 +1,32 @@
 import { Component, OnInit } from '@angular/core';
-import { PokemonsService } from '../shared/services/pokemons/pokemons.service';
 import { Pokemon } from '../shared/models/pokemon.model';
+import { PokemonsService } from '../shared/services/pokemons/pokemons.service';
+import { HeaderFunctionsService } from '../shared/services/header/header-functions.service';
 
 @Component({
   selector: 'app-pokemon-list',
   templateUrl: './pokemon-list.component.html',
   styleUrls: ['./pokemon-list.component.css'],
-  providers:[PokemonsService]
+  providers:[PokemonsService, HeaderFunctionsService]
 })
 export class PokemonListComponent implements OnInit {
 
-  pokemons:any;
-  pokemonsList:Array<Pokemon>;
+  pokemonsList: Array<Pokemon>;
 
-  constructor(private pokemonService:PokemonsService) { }
+  searchText: string;
+
+  constructor(private pokemonService: PokemonsService, private headerService: HeaderFunctionsService) { }
 
   ngOnInit() {
-    this.pokemons = this.pokemonService.pokemons;
-    //console.log(this.pokemons);
-    //console.log(JSON.stringify(this.pokemons));
-    //console.log(this.pokemons.constructor.name);
-    console.log(this.pokemons[0].name);
-
     this.pokemonsList = this.pokemonService.getPokemonsListDisplay();
+
+    this.headerService.searchTextVal.subscribe(
+      (text: any) => {
+        this.searchText = text;
+        console.log(text);
+      }
+    );
+
   }
 
 }

@@ -1,5 +1,22 @@
-<div class="row m-2">
-    <div class="thumbnails" *ngFor="let pokemon of pokemons">
-        <app-pokemon-item></app-pokemon-item>
-    </div> 
+<div class="container-fluid">
+    <div class="row mx-2 my-4">
+        <ng-container *ngFor="let pokemon of pokemonsList | search:searchText">
+                <div class = "col-3 col-xl-3 mt-2">
+                    <img class="img-thumbnail" src="{{ pokemon.imgURL }}">
+                    <div class = "caption">
+                        <div class = "row">
+                            <div class="col-8 ml-1 mt-1">
+                                <p style="font-weight: bold; font-size: 20px; margin-bottom: -5px;">{{ pokemon.name }}</p>
+                                <p><span>{{ pokemon.types[0] }}</span><span *ngIf="pokemon.types[1]">, {{ pokemon.types[1] }}</span></p>
+                        </div>
+                    <div class="col-3">
+                        <div class="text-center">
+                            <p class="fa fa-heart-o" appFavPokemon></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </ng-container> 
+    </div>
 </div>

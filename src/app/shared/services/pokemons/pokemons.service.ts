@@ -14,11 +14,26 @@ export class PokemonsService {
 
    getPokemonsListDisplay() {
     let modelList:Array<Pokemon> = new Array<Pokemon>();
+
     for(let pokemon of this.pokemons) {
-      let model:Pokemon = new Pokemon(pokemon.name, pokemon.types, this.baseURL + pokemon.name.toLowerCase() + '.jpg');
+      let name:string = pokemon.name;
+      let image:string = '';
+      
+      if(name == 'Mr. Mime') {
+        image = this.baseURL + 'mr-mime.jpg';
+      } else if(name.includes('Farfetch')) { 
+        image = this.baseURL + 'farfetchd.jpg';
+      } else {
+        image = this.baseURL + name.toLowerCase() + '.jpg';
+      }
+
+      let model:Pokemon = new Pokemon(name, pokemon.types, image);
       //console.log('Pokemon:', model);
       modelList.push(model);
     }
+
     return modelList;
    }
+
+   
 }

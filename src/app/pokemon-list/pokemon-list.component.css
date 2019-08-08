@@ -1,0 +1,21 @@
+.caption {
+    background: #eeeeee;
+}
+
+.img-thumbnail {
+    border-radius: 0;
+    display: block;
+    height: 379;
+    min-width: 100%;
+    max-width: 100%;
+    width: 100%;
+    min-height: 379px;
+    max-height: 379px;
+    object-fit: contain;
+}
+
+.fa-heart, .fa-heart-o {
+    color:red;
+    font-size: 170%;
+    margin-top: 35%;
+}

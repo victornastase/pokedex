@@ -1,6 +1,5 @@
 .caption {
     background: #eeeeee;
-    margin-bottom: 5px;
 }
 
 .thumbnail {
@@ -18,7 +17,7 @@
 .fa-heart, .fa-heart-o {
     color:red;
     font-size: 170%;
-    margin-top: 25%;
+    margin-top: 35%;
 }
 
 .text-center{

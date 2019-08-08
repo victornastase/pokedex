@@ -10,6 +10,8 @@ import { PokemonItemComponent } from './pokemon-item/pokemon-item.component';
 
 import { FavoriteHeart } from './shared/directives/favorite-heart.directive';
 
+import { SearchPipe } from './shared/pipes/search-filter.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +19,9 @@ import { FavoriteHeart } from './shared/directives/favorite-heart.directive';
     PokemonListComponent,
     PokemonItemComponent,
     
-    FavoriteHeart
+    FavoriteHeart,
+
+    SearchPipe
   ],
   imports: [
     BrowserModule,

@@ -1,18 +1,17 @@
-<div class = "col-sm-6 col-md-3">
-    <div class="thumbnail">
-        <img class="img-thumbnail" src="https://img.pokemondb.net/artwork/large/bulbasaur.jpg">
-        <div class = "caption p-2">
+<ng-container *ngFor="let pokemon of pokemons">
+    <img class="img-thumbnail mt-3" src="{{ pokemon.imgURL }}">
+    <div class = "caption">
             <div class = "row">
-                <div class="col-8">
-                    <p style="font-weight: bold; font-size: 20px; margin-bottom: -5px;">Bulbasaur</p>
-                    <p>Grass, poison</p>
+                <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8 ml-1 mt-1">
+                        <p style="font-weight: bold; font-size: 20px; margin-bottom: -5px;">{{pokemon.name}}</p>
+                        <p><span>{{ pokemon.types[0] }}</span><span *ngIf="pokemon.types[1]">, {{ pokemon.types[1] }}</span></p>
                 </div>
                 <div class="col-3">
                     <div class="text-center">
-                        <p class="fa fa-heart-o" appFavPokemon></p>
+                            <p class="fa fa-heart-o" appFavPokemon></p>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+</ng-container>
+
