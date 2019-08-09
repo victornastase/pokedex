@@ -1,12 +1,26 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 
 import { EventEmitter } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class HeaderFunctionsService {
-  
-  searchTextVal = new EventEmitter<string>();
 
-  constructor() { }
+  searchTextVal: EventEmitter<string> = new EventEmitter();
+  selectedBtn = new Subject();
+
+  constructor() { 
+    console.log('HeaderFunctionsService');
+  }
+
+  getSearchText(event: any) {
+    this.searchTextVal.emit(event.target.value);
+  }
+
+  sendSelectButtonData(selectedBtn: string) {
+    this.selectedBtn.next(selectedBtn);
+  }
 
 }

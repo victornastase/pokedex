@@ -6,8 +6,7 @@ import { HeaderFunctionsService } from '../shared/services/header/header-functio
 @Component({
   selector: 'app-pokemon-list',
   templateUrl: './pokemon-list.component.html',
-  styleUrls: ['./pokemon-list.component.css'],
-  providers:[PokemonsService, HeaderFunctionsService]
+  styleUrls: ['./pokemon-list.component.css']
 })
 export class PokemonListComponent implements OnInit {
 
@@ -15,18 +14,27 @@ export class PokemonListComponent implements OnInit {
 
   searchText: string;
 
-  constructor(private pokemonService: PokemonsService, private headerService: HeaderFunctionsService) { }
+  constructor(private pokemonService: PokemonsService, private headerService: HeaderFunctionsService) {}
 
   ngOnInit() {
-    this.pokemonsList = this.pokemonService.getPokemonsListDisplay();
+    this.pokemonsList = this.pokemonService.getPokemonsListModel();
 
     this.headerService.searchTextVal.subscribe(
-      (text: any) => {
+      (text: string) => {
         this.searchText = text;
-        console.log(text);
       }
     );
 
+    this.headerService.selectedBtn.subscribe(
+      (btn: string) => {
+        this.pokemonsList = this.pokemonService.getDisplayList(btn);
+      }
+    );
+
+  }
+
+  addToFavorites(pokemon: Pokemon) {
+    this.pokemonService.favoriteList.push(pokemon);
   }
 
 }

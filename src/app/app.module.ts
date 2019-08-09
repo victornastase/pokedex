@@ -11,6 +11,8 @@ import { PokemonItemComponent } from './pokemon-item/pokemon-item.component';
 import { FavoriteHeart } from './shared/directives/favorite-heart.directive';
 
 import { SearchPipe } from './shared/pipes/search-filter.pipe';
+import { HeaderFunctionsService } from './shared/services/header/header-functions.service';
+import { PokemonsService } from './shared/services/pokemons/pokemons.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,7 @@ import { SearchPipe } from './shared/pipes/search-filter.pipe';
     BrowserModule,
     AngularFontAwesomeModule
   ],
-  providers: [],
+  providers: [HeaderFunctionsService, PokemonsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

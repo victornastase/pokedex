@@ -2,17 +2,24 @@ import { Injectable } from '@angular/core';
 
 import pokemonsJson from '../../../../assets/pokemons.json'
 import { Pokemon } from '../../models/pokemon.model.js';
+import { HeaderFunctionsService } from '../header/header-functions.service.js';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class PokemonsService {
   pokemons: any;
+
+  favoriteList: Array<Pokemon>;
+
   baseURL:string = 'https://img.pokemondb.net/artwork/large/';
 
-  constructor() {
+  constructor(private headerService: HeaderFunctionsService) {
     this.pokemons = pokemonsJson;
+    this.favoriteList = new Array<Pokemon>();
    }
 
-   getPokemonsListDisplay() {
+   getPokemonsListModel(): Array<Pokemon> {
     let modelList:Array<Pokemon> = new Array<Pokemon>();
 
     for(let pokemon of this.pokemons) {
@@ -28,12 +35,18 @@ export class PokemonsService {
       }
 
       let model:Pokemon = new Pokemon(name, pokemon.types, image);
-      //console.log('Pokemon:', model);
+
       modelList.push(model);
     }
 
     return modelList;
    }
 
+   getDisplayList(selectedBtn: string): Array<Pokemon> {
+     if(selectedBtn === 'All') {
+      return this.getPokemonsListModel();
+     } 
+      return this.favoriteList;
+   }
    
 }
