@@ -10,7 +10,6 @@ export class SearchPipe implements PipeTransform {
         if(!searchText) return pokemons;
 
         searchText = searchText.toLowerCase();
-        console.log(searchText);
         return pokemons.filter( (pokemon: Pokemon) => {
             return pokemon.name.toLowerCase().includes(searchText);
         });

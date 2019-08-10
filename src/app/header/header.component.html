@@ -1,20 +1,28 @@
 <div class="card w-100">
     <div class="card-body">
         <div class="container-fuild">
-            <div class="row mb-1">
+            <div class="row mb-2">
                     <div class="btn-group btn-group-justified w-100">
                             <button class="btn btn-primary mx-1" [ngClass]="{'disabled':!isActive('All')}" (click)="onSelected('All')">All</button>
                             <button class="btn btn-primary mx-1" [ngClass]="{'disabled':isActive('All')}" (click)="onSelected('Fav')">Favorites</button>
                     </div>
             </div>
             <div class="row">
-                    <input type="text" class="form-control mx-1" placeholder="Search..." (keyup)="getText($event)">
-                    <button class="btn btn-secondary dropdown-toggle mx-1" type="button">
-                        Type
-                    </button>
-                    <div class="btn-group btn-group-justified w-20">
-                        <button class="btn"><span class="fa fa-align-justify"></span></button>
-                        <button class="btn"><span class="fa fa-th"></span></button>
+                    <div class="col-7 px-1">
+                        <input type="text" class="form-control" placeholder="Search..." (keyup)="getText($event)">
+                    </div>
+                    <div class="col-3 px-1">
+                        <div class="input-group">
+                            <select class="custom-select" (change)="typeSelect($event)">
+                                <option *ngFor="let type of types">{{ type }}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-2 px-1">
+                        <div class="btn-group btn-group-justified">
+                            <button class="btn"><span class="fa fa-align-justify"></span></button>
+                            <button class="btn"><span class="fa fa-th"></span></button>
+                        </div>
                     </div>
             </div>
         </div>

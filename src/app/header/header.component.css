@@ -3,6 +3,19 @@
     border-radius: 0;
 }
 
+.col-7.px-1  {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.col-3.px-1  {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.col-2.px-1  {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
 .btn-primary {
     border-radius: 0;
     background: #71c1a1;
@@ -10,8 +23,40 @@
     font-weight: bold;
 }
 
+.custom-select {
+    border-radius: 0;
+    border-width: 0;
+    color:#8e8e8e;
+    background: url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png) no-repeat right #eeeeee;
+    background-position: 97%;
+}
+
+.custom-select:active, .custom-select:focus {
+    outline: none !important;
+    box-shadow: none;
+}
+
+option:hover, option:focus {
+    border-width: 0;
+    background-color: #a5a1a1;
+}
+
+
+.btn-primary.dropdown-toggle {
+    background: #eeeeee;
+    border-radius: 0;
+    border-width: 0;
+    color: #8e8e8e;
+    font-weight: normal;
+    margin-bottom: 2px;
+    text-align: left;
+}
+
+#typeDd {
+    width: 100% !important;
+}
+
 .form-control {
-    width: 65%;
     border-radius: 0;
     border-width: 0;
     background: #eeeeee;
@@ -22,14 +67,11 @@
     box-shadow: none;
 }
 
-.btn-secondary {
-    width: 25%;
-    border-radius: 0;
-    border-width: 0;
+.dropdown {
+    width: 100%;
     background: #eeeeee;
     color: #8e8e8e;
     text-align: left;
-    margin-bottom: 8px;
 }
 
 .disabled {

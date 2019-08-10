@@ -13,6 +13,7 @@ import { FavoriteHeart } from './shared/directives/favorite-heart.directive';
 import { SearchPipe } from './shared/pipes/search-filter.pipe';
 import { HeaderFunctionsService } from './shared/services/header/header-functions.service';
 import { PokemonsService } from './shared/services/pokemons/pokemons.service';
+import { TypePipe } from './shared/pipes/type-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { PokemonsService } from './shared/services/pokemons/pokemons.service';
     
     FavoriteHeart,
 
-    SearchPipe
+    SearchPipe,
+    TypePipe
   ],
   imports: [
     BrowserModule,

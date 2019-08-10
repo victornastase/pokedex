@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <div class="row mx-2 my-4">
-        <ng-container *ngFor="let pokemon of pokemonsList | search:searchText">
+        <ng-container *ngFor="let pokemon of pokemonsList | typeFilter:typeText | search:searchText">
                 <div class = "col-3 col-xl-3 mt-2">
                     <img class="img-thumbnail" src="{{ pokemon.imgURL }}">
                     <div class = "caption">
@@ -11,7 +11,10 @@
                         </div>
                     <div class="col-3">
                         <div class="text-center">
-                            <p class="fa fa-heart-o" (click)="addToFavorites(pokemon)" appFavPokemon></p>
+                            <p class="fa" [ngClass]="{
+                                'fa-heart-o': !pokemon.getFavorite(),
+                                'fa-heart': pokemon.getFavorite()
+                            }" (click)="addToFavorites(pokemon)" ></p> 
                         </div>
                     </div>
                 </div>

@@ -9,16 +9,22 @@ import { Subject } from 'rxjs/Subject';
 export class HeaderFunctionsService {
 
   searchTextVal: EventEmitter<string> = new EventEmitter();
-  selectedBtn = new Subject();
+  typeTextVal = new Subject();
 
+  selectedBtn = new Subject();
+  
   constructor() {}
 
-  getSearchText(event: any) {
+  sendSearchText(event: any) {
     this.searchTextVal.emit(event.target.value);
   }
 
   sendSelectButtonData(selectedBtn: string) {
     this.selectedBtn.next(selectedBtn);
+  }
+
+  sendTypeText(type: string) {
+    this.typeTextVal.next(type);
   }
 
 }

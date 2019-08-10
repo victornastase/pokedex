@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import pokemonsJson from '../../../../assets/pokemons.json'
 import { Pokemon } from '../../models/pokemon.model.js';
 import { HeaderFunctionsService } from '../header/header-functions.service.js';
+import { Subject } from 'rxjs/Subject';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +15,31 @@ export class PokemonsService {
 
   baseURL:string = 'https://img.pokemondb.net/artwork/large/';
 
-  constructor(private headerService: HeaderFunctionsService) {
+  types: string[] = [
+    'Type',
+    'Normal',
+    'Fire',
+    'Water',
+    'Electric',
+    'Grass',
+    'Ice',
+    'Fighting',
+    'Poison',
+    'Ground',
+    'Flying',
+    'Psychic',
+    'Bug',
+    'Rock',
+    'Ghost',
+    'Dragon',
+    'Dark',
+    'Steel',
+    'Fairy'
+  ];
+
+  constructor() {
     this.pokemons = pokemonsJson;
+    console.log(this.pokemons);
     this.favoriteList = new Array<Pokemon>();
    }
 
@@ -34,11 +58,11 @@ export class PokemonsService {
         image = this.baseURL + name.toLowerCase() + '.jpg';
       }
 
-      let model:Pokemon = new Pokemon(name, pokemon.types, image, false);
+      let model:Pokemon = new Pokemon(name, pokemon.types, image, false, pokemon.maxCP, pokemon.maxHP, pokemon.height.minimum, pokemon.height.maximum, pokemon.weight.minimum, pokemon.weight.maximum);
 
       modelList.push(model);
     }
-
+    console.log(modelList);
     return modelList;
    }
 
@@ -56,6 +80,7 @@ export class PokemonsService {
      if(selectedBtn === 'All') {
 
         let pokemonList:Array<Pokemon> = this.getPokemonsListModel();
+
         if(this.favoriteList.length > 0) {
           let index: number = -1;
           for(let fav of this.favoriteList) {

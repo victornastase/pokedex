@@ -9,7 +9,8 @@ import { PokemonsService } from '../shared/services/pokemons/pokemons.service';
 })
 export class HeaderComponent implements OnInit {
 
-  selectedBtn:string;
+  types: string[];
+  selectedBtn: string;
 
   constructor(private headerService: HeaderFunctionsService, private pokemonService: PokemonsService) { }
 
@@ -23,11 +24,16 @@ export class HeaderComponent implements OnInit {
   }
 
   getText(event:any) {
-    this.headerService.getSearchText(event);
+    this.headerService.sendSearchText(event);
+  }
+
+  typeSelect(event: any) {
+    this.headerService.sendTypeText(event.target.value);
   }
 
   ngOnInit() {
     this.selectedBtn = 'All';
+    this.types = this.pokemonService.types;
   }
 
 }
