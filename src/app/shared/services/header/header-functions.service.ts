@@ -11,9 +11,7 @@ export class HeaderFunctionsService {
   searchTextVal: EventEmitter<string> = new EventEmitter();
   selectedBtn = new Subject();
 
-  constructor() { 
-    console.log('HeaderFunctionsService');
-  }
+  constructor() {}
 
   getSearchText(event: any) {
     this.searchTextVal.emit(event.target.value);

@@ -17,6 +17,11 @@
     background: #eeeeee;
 }
 
+.btn:focus, .btn:active {
+    outline: none !important;
+    box-shadow: none;
+}
+
 .btn-secondary {
     width: 25%;
     border-radius: 0;

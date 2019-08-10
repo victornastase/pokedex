@@ -1,4 +1,5 @@
-import { Directive, HostListener, HostBinding, ElementRef } from '@angular/core';
+import { Directive, HostListener, HostBinding, ElementRef, Input } from '@angular/core';
+import { Pokemon } from '../models/pokemon.model';
 
 @Directive({
     selector:'[appFavPokemon]'

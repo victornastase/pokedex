@@ -34,7 +34,8 @@ export class PokemonListComponent implements OnInit {
   }
 
   addToFavorites(pokemon: Pokemon) {
-    this.pokemonService.favoriteList.push(pokemon);
+    pokemon.setFavorite(!pokemon.getFavorite());
+    pokemon.getFavorite() ? this.pokemonService.addToFavorites(pokemon) : this.pokemonService.removeFromFavorites(pokemon);
   }
 
 }
