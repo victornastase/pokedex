@@ -1,6 +1,6 @@
 <div class="row mt-4 ml-4">
     <div class="col-4">
-        <img id="poke-image" class="img-thumbnail" (click)="goToPokemon(pokemon)" src="{{ pokemon.imgURL }}">
+        <img id="poke-image" class="img-thumbnail" src="{{ pokemon.imgURL }}">
 
         <p class="pl-2" style="font-weight: bold; font-size: 25px; margin-bottom: -4px; background: #eeeeee;">{{ pokemon.name }}</p>
         <p class="pl-2" id="types" style="background: #eeeeee;"><span style="font-size: 20px; background: #eeeeee;" >{{ pokemon.types[0] }}</span><span *ngIf="pokemon.types[1]" style="font-size: 20px; background: #eeeeee;">, {{ pokemon.types[1] }}</span></p>
