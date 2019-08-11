@@ -11,17 +11,17 @@
                     <div class="col-7 px-1">
                         <input type="text" class="form-control" placeholder="Search..." (keyup)="getText($event)">
                     </div>
-                    <div class="col-3 px-1">
+                    <div class="col-4 px-1">
                         <div class="input-group">
                             <select class="custom-select" (change)="typeSelect($event)">
                                 <option *ngFor="let type of types">{{ type }}</option>
                             </select>
                         </div>
                     </div>
-                    <div class="col-2 px-1">
-                        <div class="btn-group btn-group-justified">
-                            <button class="btn"><span class="fa fa-align-justify"></span></button>
-                            <button class="btn"><span class="fa fa-th"></span></button>
+                    <div class="col-1 px-1">
+                        <div id="grid-buttons" class="btn-group btn-group-justified">
+                            <button class="btn" (click)="gridSelect(false)"><span class="fa fa-align-justify"></span></button>
+                            <button class="btn" (click)="gridSelect(true)"><span class="fa fa-th"></span></button>
                         </div>
                     </div>
             </div>

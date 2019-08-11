@@ -1,8 +1,12 @@
-<div class="container-fluid">
-<div class="fixed-top">
-    <app-header></app-header>
+<div *ngIf="!showPokemon" class="container-fluid">
+    <div class="fixed-top">
+        <app-header></app-header>
+    </div>
+    <app-pokemon-list></app-pokemon-list>
 </div>
-<app-pokemon-list></app-pokemon-list>
+
+<div *ngIf="showPokemon" class="container-fluid">
+    <router-outlet></router-outlet>
 </div>
 
 

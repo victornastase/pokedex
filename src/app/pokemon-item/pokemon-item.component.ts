@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { PokemonsService } from '../shared/services/pokemons/pokemons.service';
 import { Pokemon } from '../shared/models/pokemon.model';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-pokemon-item',
@@ -8,14 +9,18 @@ import { Pokemon } from '../shared/models/pokemon.model';
   styleUrls: ['./pokemon-item.component.css'],
   providers: [PokemonsService]
 })
-export class PokemonItemComponent implements OnInit {
+export class PokemonItemComponent implements OnInit, OnDestroy {
 
-  pokemons:Array<Pokemon>;
+  pokemon: Pokemon;
 
-  constructor(private pokemonService:PokemonsService) { }
+  constructor(private pokemonService:PokemonsService, private route: ActivatedRoute) {}
 
   ngOnInit() {
-    //this.pokemons = this.pokemonService.getPokemonsListDisplay();
+    this.pokemon = this.pokemonService.findPokemonByName(this.route.snapshot.params['name']);
+  }
+
+  ngOnDestroy(): void {
+    this.pokemonService.sendChangePage(false);
   }
 
 }

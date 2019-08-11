@@ -2,6 +2,7 @@ import { Component, OnInit, AfterContentInit } from '@angular/core';
 import { Pokemon } from '../shared/models/pokemon.model';
 import { PokemonsService } from '../shared/services/pokemons/pokemons.service';
 import { HeaderFunctionsService } from '../shared/services/header/header-functions.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -14,8 +15,9 @@ export class PokemonListComponent implements OnInit {
 
   searchText: string;
   typeText: string;
+  isGrid: boolean;
 
-  constructor(private pokemonService: PokemonsService, private headerService: HeaderFunctionsService) {}
+  constructor(private pokemonService: PokemonsService, private headerService: HeaderFunctionsService, private router: Router) {}
 
   ngOnInit() {
     this.pokemonsList = this.pokemonService.getPokemonsListModel();
@@ -38,11 +40,24 @@ export class PokemonListComponent implements OnInit {
       }
     );
 
+    this.headerService.isGrid.subscribe(
+      (isGrid: boolean) => {
+        console.log('List know: ', isGrid);
+        this.isGrid = isGrid;
+      }
+    );
+    this.isGrid=true;
+
   }
 
   addToFavorites(pokemon: Pokemon) {
     pokemon.setFavorite(!pokemon.getFavorite());
     pokemon.getFavorite() ? this.pokemonService.addToFavorites(pokemon) : this.pokemonService.removeFromFavorites(pokemon);
+  }
+
+  goToPokemon(pokemon: Pokemon) {
+    this.pokemonService.sendChangePage(true);
+    this.router.navigate([pokemon.name]);
   }
   
 }

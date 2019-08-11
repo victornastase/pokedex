@@ -12,6 +12,7 @@ export class HeaderFunctionsService {
   typeTextVal = new Subject();
 
   selectedBtn = new Subject();
+  isGrid = new Subject();
   
   constructor() {}
 
@@ -25,6 +26,11 @@ export class HeaderFunctionsService {
 
   sendTypeText(type: string) {
     this.typeTextVal.next(type);
+  }
+
+  sendGridType(isGrid: boolean) {
+    console.log('service send: ', isGrid);
+    this.isGrid.next(isGrid);
   }
 
 }

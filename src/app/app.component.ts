@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { PokemonsService } from './shared/services/pokemons/pokemons.service';
 
 
 @Component({
@@ -6,6 +7,20 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  
   title = 'pokedex';
+
+  showPokemon: boolean;
+
+  constructor(private pokemonService: PokemonsService) {}
+
+  ngOnInit(): void {
+    this.showPokemon = false;
+
+    this.pokemonService.changePage.subscribe(
+      (showPokemon: boolean) => this.showPokemon = showPokemon 
+    );
+  }
+
 }

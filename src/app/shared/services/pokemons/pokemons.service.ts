@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
 
 import pokemonsJson from '../../../../assets/pokemons.json'
 import { Pokemon } from '../../models/pokemon.model.js';
-import { HeaderFunctionsService } from '../header/header-functions.service.js';
-import { Subject } from 'rxjs/Subject';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PokemonsService {
+
+  changePage = new Subject();
+
   pokemons: any;
 
   favoriteList: Array<Pokemon>;
@@ -39,7 +41,6 @@ export class PokemonsService {
 
   constructor() {
     this.pokemons = pokemonsJson;
-    console.log(this.pokemons);
     this.favoriteList = new Array<Pokemon>();
    }
 
@@ -62,7 +63,7 @@ export class PokemonsService {
 
       modelList.push(model);
     }
-    console.log(modelList);
+    
     return modelList;
    }
 
@@ -92,6 +93,14 @@ export class PokemonsService {
         return pokemonList;
      } 
       return this.favoriteList;
+   }
+
+   sendChangePage(showPokemon: boolean) {
+     this.changePage.next(showPokemon);
+   }
+
+   findPokemonByName(name: string): Pokemon {
+    return this.getDisplayList('All').find((pokemon: Pokemon) => pokemon.name === name);
    }
    
 }

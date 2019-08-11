@@ -85,4 +85,10 @@ option:hover, option:focus {
     font-size: 190%;
     width: 10%;
     text-align: left;
+    padding-bottom: 5%; 
+}
+
+#grid-buttons {
+    text-align: center;
+    width: 100%;
 }

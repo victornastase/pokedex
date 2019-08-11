@@ -1,17 +1,40 @@
-<ng-container *ngFor="let pokemon of pokemons">
-    <img class="img-thumbnail mt-3" src="{{ pokemon.imgURL }}">
-    <div class = "caption">
-            <div class = "row">
-                <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8 ml-1 mt-1">
-                        <p style="font-weight: bold; font-size: 20px; margin-bottom: -5px;">{{pokemon.name}}</p>
-                        <p><span>{{ pokemon.types[0] }}</span><span *ngIf="pokemon.types[1]">, {{ pokemon.types[1] }}</span></p>
-                </div>
-                <div class="col-3">
-                    <div class="text-center">
-                            <p class="fa fa-heart-o" appFavPokemon></p>
-                    </div>
-                </div>
+<div class="row mt-4 ml-4">
+    <div class="col-4">
+        <img id="poke-image" class="img-thumbnail" (click)="goToPokemon(pokemon)" src="{{ pokemon.imgURL }}">
+
+        <p class="pl-2" style="font-weight: bold; font-size: 25px; margin-bottom: -4px; background: #eeeeee;">{{ pokemon.name }}</p>
+        <p class="pl-2" id="types" style="background: #eeeeee;"><span style="font-size: 20px; background: #eeeeee;" >{{ pokemon.types[0] }}</span><span *ngIf="pokemon.types[1]" style="font-size: 20px; background: #eeeeee;">, {{ pokemon.types[1] }}</span></p>
+        <div id="stats-cp" class="row">
+            <div class="col-9 pl-2">
+                <hr class="cp">
+            </div>
+            <div class="col-3 px-2 pt-1">
+                <p style="font-weight: bold; margin-left: 20px; padding-top:4px;"> CP: {{  pokemon.cp }} </p>
             </div>
         </div>
-</ng-container>
+        <div id="stats-hp" class="row">
+            <div class="col-9 pl-2">
+                <hr class="hp">
+            </div>
+            <div class="col-3 px-2 pt-1">
+                <p style="font-weight: bold; margin-left: 20px; padding-top:4px;"> HP: {{  pokemon.hp }} </p>
+            </div>
+        </div>
+        <div id="stats-wh" class="row mb-4">
+            <div class="col-6">
+                <div class="text-center">
+                    <p class="border-left border-top border-right" style="font-weight: bold; margin-bottom: -4px;">Weigth</p>
+                    <p class="border-left border-bottom border-right"> {{ pokemon.minWeight }} - {{ pokemon.maxWeight }}</p>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="text-center">
+                    <p class="border-top border-right" style="font-weight: bold; margin-bottom: -4px;">Height</p>
+                    <p class="border-bottom border-right"> {{ pokemon.minHeight }} - {{ pokemon.maxHeight }}</p>
+                </div>
+            </div>
+        </div>   
+    </div>
+</div>
+
 

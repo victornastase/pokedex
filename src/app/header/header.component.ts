@@ -31,6 +31,10 @@ export class HeaderComponent implements OnInit {
     this.headerService.sendTypeText(event.target.value);
   }
 
+  gridSelect(isGrid: boolean) {
+    this.headerService.sendGridType(isGrid);
+  }
+
   ngOnInit() {
     this.selectedBtn = 'All';
     this.types = this.pokemonService.types;

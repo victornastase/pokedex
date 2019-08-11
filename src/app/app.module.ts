@@ -14,6 +14,12 @@ import { SearchPipe } from './shared/pipes/search-filter.pipe';
 import { HeaderFunctionsService } from './shared/services/header/header-functions.service';
 import { PokemonsService } from './shared/services/pokemons/pokemons.service';
 import { TypePipe } from './shared/pipes/type-filter.pipe';
+import { RouterModule, Routes } from '@angular/router';
+
+const appRoutes: Routes = [
+  { path: "", component: AppComponent },
+  { path: ":name", component: PokemonItemComponent }
+];
 
 @NgModule({
   declarations: [
@@ -29,7 +35,8 @@ import { TypePipe } from './shared/pipes/type-filter.pipe';
   ],
   imports: [
     BrowserModule,
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [HeaderFunctionsService, PokemonsService],
   bootstrap: [AppComponent]
