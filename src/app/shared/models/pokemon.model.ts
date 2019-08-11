@@ -1,15 +1,15 @@
 export class  Pokemon {
     constructor(
         public name:string, 
-        private types:Array<string>,
-        private imgURL:string, 
-        private favorite: boolean, 
-        private cp: number, 
-        private hp: number,
-        private minHeight: string,
-        private maxHeight: string,
-        private minWeight: string,
-        private maxWeight: string
+        public types:Array<string>,
+        public imgURL:string, 
+        public favorite: boolean, 
+        public cp: number, 
+        public hp: number,
+        public minHeight: string,
+        public maxHeight: string,
+        public minWeight: string,
+        public maxWeight: string
         ){}
 
     getFavorite(): boolean {
