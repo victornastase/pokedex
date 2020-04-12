@@ -1,22 +1,23 @@
-.container-fluid {
-    margin-top: 8.5%;
+#img-grid {
+    display: block;
+    width: 100%;
+    height: 70%;
+    object-fit: contain;
 }
 
-.caption {
+#caption-grid {
     background: #eeeeee;
 }
 
-.img-thumbnail {
+#img-not-grid {
     border-radius: 0;
+    border:0;
     display: block;
-    height: 379;
-    min-width: 100%;
-    max-width: 100%;
     width: 100%;
-    min-height: 379px;
-    max-height: 379px;
-    object-fit: contain;
+    height: 100%;
+    object-fit: cover;
     cursor: pointer;
+    padding: 2px;
 }
 
 .fa-heart, .fa-heart-o {
@@ -25,35 +26,79 @@
     margin-top: 20%;
 }
 
-#list-image {
-    height: 140px; 
-    min-height: 140px;
-    max-height: 140px;
-}
-
-.col-1 {
-    padding-left: 0px;
-    padding-right: 0px;
-}
-
-#name-caption {
-    background: #eeeeee;
-    padding-top: 1.2%; 
-}
-
 #heart {
     background: #eeeeee;
     padding-left: 0px;
     padding-right: 0px;
 }
 
-#heart-from-list {
-    font-size: 230%;
-    margin-top: 12.2%;
-    margin-right: 10%;
-}
-
-.row.w-100.mb-4 {
+.row.mb-4 {
     border: 1px solid;
     border-color: #a5a1a1;
+}
+
+@media only screen and (min-width: 300px) and (max-width: 700px) {
+    .name-list {
+        font-weight: bold; 
+        font-size: 20px; 
+        margin-bottom: -4px;
+    }
+
+    .type-list { 
+        font-size: 1rem; 
+    }
+
+    #caption-grid {
+        background: #eeeeee;
+    }
+
+    #img-not-grid {
+        border-radius: 0;
+        border:0;
+        display: block;
+        width: 500px;
+        height: 70px;
+        object-fit: contain;
+        cursor: pointer;
+        padding: 2px;
+    }
+
+    #col-img-not-grig {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    #heart-from-list {
+        font-size: 150%;
+        text-align: center;
+    }
+}
+
+@media only screen and (min-width: 701px) {
+    .name-list {
+        font-weight: bold; 
+        font-size: 2.5rem; 
+        margin-bottom: -4px;
+    }
+
+    .type-list { 
+        font-size: 1.5rem; 
+    }
+
+    #img-not-grid {
+        border-radius: 0;
+        border:0;
+        display: block;
+        width: 700px;
+        height: 150px;
+        object-fit: fill;
+        cursor: pointer;
+        padding: 2px;
+    }
+
+    #heart-from-list {
+        font-size: 300%;
+        text-align: center;
+    }
+
 }

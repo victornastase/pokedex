@@ -1,45 +1,47 @@
-<div class="container-fluid">
+<div class="container">
     <div class="row mx-2 my-4">
         <ng-container *ngFor="let pokemon of pokemonsList | typeFilter:typeText | search:searchText">
 
-            <div *ngIf="isGrid" class = "col-3 col-xl-3 mt-2">
-                    <img class="img-thumbnail" (click)="goToPokemon(pokemon)" src="{{ pokemon.imgURL }}">
-                    <div class = "caption">
-                        <div class = "row">
-                            <div class="col-8 ml-1 mt-1">
+            <div *ngIf="isGrid" class = "col-xs-1 col-sm-1 col-md-3 mt-2">
+                    <img id="img-grid" class="img-thumbnail" (click)="goToPokemon(pokemon)" src="{{ pokemon.imgURL }}">
+                    <div class = "container">
+                        <div id="caption-grid" class = "row">
+                            <div class="col-8 col-sm-9">
                                 <p style="font-weight: bold; font-size: 20px; margin-bottom: -5px;">{{ pokemon.name }}</p>
                                 <p><span>{{ pokemon.types[0] }}</span><span *ngIf="pokemon.types[1]">, {{ pokemon.types[1] }}</span></p>
                             </div>
-                    <div class="col-3">
-                        <div class="text-center">
-                            <p class="fa" [ngClass]="{
-                                'fa-heart-o': !pokemon.getFavorite(),
-                                'fa-heart': pokemon.getFavorite()
-                            }" (click)="addToFavorites(pokemon)" ></p> 
+                            <div class="col-4 col-sm-3">
+                                <p class="fa" [ngClass]="{
+                                    'fa-heart-o': !pokemon.getFavorite(),
+                                    'fa-heart': pokemon.getFavorite()
+                                }" (click)="addToFavorites(pokemon)" ></p> 
+                            </div>
                         </div>
                     </div>
+                </div>
 
+            <div *ngIf="!isGrid">
+                <div class="container">
+                    <div class="row mb-4">
+                        <div id="col-img-not-grig" class="col-3 col-md-3">
+                            <img id="img-not-grid" class="img-thumbnail" (click)="goToPokemon(pokemon)" src="{{ pokemon.imgURL }}">
+                        </div>
+                        <div id="caption-grid" class="col-7 col-md-7 pt-1">
+                            <!-- style="font-weight: bold; font-size: 20px; margin-bottom: -4px;" -->
+                            <p class="name-list">{{ pokemon.name }}</p>
+                            <!-- style="font-size: 15px;" -->
+                            <p><span class="type-list"  >{{ pokemon.types[0] }}</span><span *ngIf="pokemon.types[1]" class="type-list" >, {{ pokemon.types[1] }}</span></p>
+                        </div>
+                        <div  id="caption-grid" class="col-2 col-md-2 pt-2">
+                            <p id="heart-from-list" class="fa" [ngClass]="{
+                                'fa-heart-o': !pokemon.getFavorite(),
+                                'fa-heart': pokemon.getFavorite()
+                            }" (click)="addToFavorites(pokemon)" ></p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <div *ngIf="!isGrid" class="row w-100 mb-4">
-            <div class="col-1">
-                <img id="list-image" class="img-thumbnail" (click)="goToPokemon(pokemon)" src="{{ pokemon.imgURL }}">
-            </div>
-            <div id="name-caption" class="col-8">
-                <p style="font-weight: bold; font-size: 30px; margin-bottom: -4px;">{{ pokemon.name }}</p>
-                <p><span style="font-size: 25px;" >{{ pokemon.types[0] }}</span><span *ngIf="pokemon.types[1]" style="font-size: 25px;">, {{ pokemon.types[1] }}</span></p>
-            </div>
-            <div id ="heart" class="col-3">
-                <div class="text-right">
-                    <p id="heart-from-list" class="fa" [ngClass]="{
-                            'fa-heart-o': !pokemon.getFavorite(),
-                            'fa-heart': pokemon.getFavorite()
-                        }" (click)="addToFavorites(pokemon)" ></p> 
-                </div>
-            </div>
-        </div>
+            
         </ng-container> 
     </div>
 </div>
