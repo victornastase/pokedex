@@ -1,4 +1,9 @@
 FROM node:10-alpine as build-step
+
+LABEL org.opencontainers.image.title="pokedex"\
+      org.opencontainers.image.description="Pokemon catalog. Build with Angular!"\
+      org.opencontainers.image.authors="@victornastase"
+
 RUN mkdir -p /app
 WORKDIR /app
 COPY package.json /app
